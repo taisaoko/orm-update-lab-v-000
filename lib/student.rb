@@ -42,16 +42,15 @@ class Student
     end
   end
   
-  def self.create(name:, grade:)
-    student = Student.new(name:, grade:)
+  def self.create(name, grade)
+    student = Student.new(name, grade)
     student.save
     student
   end
 
-  def self.new_from_db(row)
+  def self.new_from_db(row) # create a new Student object given a row from the database
       new_student = self.new(row[0], row[1], row[2])  # self.new is the same as running Student.new
       new_student  # return the newly created instance
-      # create a new Student object given a row from the database
   end
   
   def self.find_by_name(name)
